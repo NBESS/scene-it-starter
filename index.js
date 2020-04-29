@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function (){
         let movieHTMLArray = movieArray.map(function(currentMovie){
             return `
             <tr>
-            <th scope="row">1</th>
-            <td><img src=${currentMovie.Poster} height="200" width="150" alt="${currentMovie.Title}"></td>
-            <td>${currentMovie.Title}</td>
-            <td>${currentMovie.Year}</td>
-            <td><button class=" btn btn-light">Add</button></td>
+            <th scope="row" class="pl-5 pr-5 ml-3 mr-3">1</th>
+            <td><img src=${currentMovie.Poster} height="200" width="150" alt="${currentMovie.Title}" class="ml-3 mr-3"></td>
+            <td class="pl-5 pr-5 ml-3 mr-3">${currentMovie.Title}</td>
+            <td class="pl-5 pr-5 ml-3 mr-3">${currentMovie.Year}</td>
+            <td class="pl-5 pr-5 ml-3 mr-3"><button class=" btn btn-light">Add</button></td>
           </tr>
             `
         });
