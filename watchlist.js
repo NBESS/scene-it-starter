@@ -1,5 +1,14 @@
+const table = document.querySelector('tbody');
+
 document.addEventListener('DOMContentLoaded', function (){  
-    localStorage.getItem('watchlist');
+    
+    const watchlistJSON = localStorage.getItem('watchlist');
+    const watchlist = JSON.parse(watchlistJSON);
+
+    if (watchlist == null){
+        $('caption').text('Watchlist - Your list Is Currently Empty');
+    }
+    
     function renderMovies(movieArray) {
         let movieHTMLArray = movieArray.map(function(currentMovie){
             return `
@@ -18,3 +27,4 @@ document.addEventListener('DOMContentLoaded', function (){
     
     // table.innerHTML = renderMovies(movieData);
 });
+

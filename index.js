@@ -1,4 +1,4 @@
-let table = document.querySelector('tbody');
+const table = document.querySelector('tbody');
 
 // Declares a function to save movies to watchlist
 
