@@ -34,12 +34,22 @@ document.addEventListener('DOMContentLoaded', function (){
         return movieHTMLArray.join(``);
     }
     const myForm = document.getElementById('search-form');
+    
     myForm.addEventListener('submit', function(e){
         e.preventDefault();
-        table.innerHTML = renderMovies(movieData);
+        
+        let $searchString = $('.search-bar').val();
+        console.log($searchString);
+        let urlEncodedSearchString = encodeURIComponent($searchString);
+        console.log(urlEncodedSearchString);
+        let movieObject = "http://www.omdbapi.com/?apikey=b43843a0&s=" + urlEncodedSearchString;
+        axios.get(movieObject)
+        .then((response) => {
+            table.innerHTML = renderMovies(response.data.Search);
+        });
+        
     });
     
-    // table.innerHTML = renderMovies(movieData);
 });
 
 

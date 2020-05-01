@@ -24,7 +24,5 @@ document.addEventListener('DOMContentLoaded', function (){
         return movieHTMLArray.join(``);
     }
     table.innerHTML = renderMovies(watchlist);
-    
-    // table.innerHTML = renderMovies(movieData);
 });
 
