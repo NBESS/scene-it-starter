@@ -34,13 +34,13 @@ document.addEventListener('DOMContentLoaded', function (){
     }
     
     const $myForm = $('#search-form');
-    
+
     $myForm.on('submit', function(e){
         e.preventDefault();
         
         let $searchString = $('.search-bar').val();
         let urlEncodedSearchString = encodeURIComponent($searchString);
-        let movieObject = "http://www.omdbapi.com/?apikey=b43843a0&s=" + urlEncodedSearchString;
+        let movieObject = "https://www.omdbapi.com/?apikey=b43843a0&s=" + urlEncodedSearchString;
 
         $.get(movieObject).then((data) => {
             $table.html(renderMovies(data.Search));
