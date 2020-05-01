@@ -1,13 +1,15 @@
 const $table = $('tbody');
-
 let watchlistJSON = localStorage.getItem('watchlist');
-    let watchlist = JSON.parse(watchlistJSON);
+let watchlist = JSON.parse(watchlistJSON);
+
+document.addEventListener('DOMContentLoaded', function (){  
+        
+    $('.add').text('Remove');
 
     if (watchlist == null){
         $('caption').text('Watchlist - Your list Is Currently Empty');
     }
-    
-    
+});
 
 function renderMovies(movieArray) {
     let movieHTMLArray = movieArray.map(function(currentMovie, index){
@@ -29,6 +31,10 @@ $table.html(renderMovies(watchlist));
 
 // Declares a function to remove movies from watchlist
 function removeFromWatchlist(imdbID){
+
+    if (watchlist == []){
+        $('caption').text('Watchlist - Your list Is Currently Empty');
+    }
     console.log('no errors');
     let movieToRemove = watchlist.find(currentMovie => currentMovie.imdbID == imdbID);
     console.log(movieToRemove);
@@ -41,12 +47,12 @@ function removeFromWatchlist(imdbID){
     watchlistJSON = JSON.stringify(watchlist);
     localStorage.setItem('watchlist', watchlistJSON);
 
+
     $table.html(renderMovies(watchlist));
+    
 }
 
-document.addEventListener('DOMContentLoaded', function (){  
-    
-    $('.add').text('Remove');
 
-});
+
+
 
